@@ -1,0 +1,370 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class TitleText extends StatelessWidget {
+  final String? textData;
+  final Color? textColor;
+  final double? textfont;
+  final String? txtfamily;
+
+  const TitleText({
+    Key? key,
+    this.txtfamily,
+    this.textData,
+    this.textColor = Colors.black,
+    this.textfont = 44,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text(
+        textData!,
+        style: TextStyle(
+            color: textColor, fontSize: textfont, fontFamily: txtfamily),
+      ),
+    );
+  }
+}
+********************************Here is the Custome Widget **************************************************
+
+import 'dart:ffi';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:navigation_fluttter/Textfiles.dart';
+
+void main(List<String> args) {
+  runApp(FirstClass());
+}
+
+class FirstClass extends StatelessWidget {
+  const FirstClass({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'this is the ui desighn',
+      home: SecondClass(),
+    );
+  }
+}
+
+class SecondClass extends StatefulWidget {
+  const SecondClass({Key? key}) : super(key: key);
+
+  @override
+  State<SecondClass> createState() => _SecondClassState();
+}
+
+class _SecondClassState extends State<SecondClass> {
+  @override
+  Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height - kToolbarHeight;
+    double width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        leading: Icon(Icons.arrow_back),
+        backgroundColor: Colors.black,
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          height: height,
+          width: width,
+          color: Colors.black,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(3),
+                child: FittedBox(
+                  child: TitleText(
+                    textData: 'Filter Search by',
+                    txtfamily: 'Combo',
+                    textColor: Colors.white,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(3),
+                child: FittedBox(
+                  child: TitleText(
+                      textData: 'price range',
+                      textfont: 22,
+                      textColor: Colors.white),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.deepOrange[400],
+                    child: Icon(Icons.done),
+                  ),
+                  Container(
+                    height: 7,
+                    width: width * 0.3,
+                    color: Colors.deepOrange[400],
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.deepOrange[400],
+                    child: Icon(Icons.done),
+                  ),
+                  Container(
+                    height: 7,
+                    width: width * 0.4,
+                    color: Colors.blueAccent,
+                  ),
+                  CircleAvatar(
+                    backgroundColor: Colors.deepOrange[400],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Padding(
+                padding: EdgeInsets.all(3),
+                child: TitleText(
+                  textData: 'Sort by',
+                  textColor: Colors.white,
+                  textfont: 16,
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(Icons.arrow_back_outlined),
+                        backgroundColor: Colors.deepOrange[400],
+                      ),
+                      TitleText(
+                        textColor: Colors.white,
+                        textData: 'On Sales',
+                        textfont: 14,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(Icons.done),
+                        backgroundColor: Colors.deepOrange,
+                      ),
+                      TitleText(
+                        textColor: Colors.white,
+                        textData: 'Newest ',
+                        textfont: 14,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 0.03,
+              ),
+              Padding(
+                  padding: EdgeInsets.all(8),
+                  child: TitleText(
+                    textData: 'Rating',
+                    textfont: 20,
+                    textColor: Colors.white,
+                  )),
+              Row(
+                children: [
+                  CircleAvatar(
+                    child: Icon(Icons.done),
+                    backgroundColor: Colors.deepOrange[400],
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Row(
+                children: [
+                  CircleAvatar(
+                    child: Icon(Icons.done),
+                    backgroundColor: Colors.deepOrange[400],
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Row(
+                children: [
+                  CircleAvatar(
+                    child: Icon(Icons.done),
+                    backgroundColor: Colors.deepOrange[400],
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Row(
+                children: [
+                  CircleAvatar(
+                    child: Icon(Icons.done),
+                    backgroundColor: Colors.deepOrange[400],
+                  ),
+                  Icon(
+                    Icons.star,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.star_border_outlined,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: height * 0.05,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width * 0.7,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        filled: true,
+                        hintText: 'Enter Your Name',
+                        fillColor: Colors.grey),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.03,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width * 0.7,
+                  child: TextFormField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        filled: true,
+                        hintText: 'Enter Your Password',
+                        fillColor: Colors.grey),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.04,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: height * 0.055,
+                    width: width * 0.35,
+                    decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Center(
+                        child: Text(
+                      "Clear",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    )),
+                  ),
+                  Container(
+                    height: height * 0.055,
+                    width: width * 0.35,
+                    decoration: BoxDecoration(
+                        color: Colors.deepOrange,
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Center(
+                        child: Text(
+                      "Clear",
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    )),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
